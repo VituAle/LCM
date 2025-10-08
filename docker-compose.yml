@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: ms-lcm-db
+    environment:
+      POSTGRES_DB: ms-lsm-db
+      POSTGRES_USER: postgres-user
+      POSTGRES_PASSWORD: postgres-password
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
