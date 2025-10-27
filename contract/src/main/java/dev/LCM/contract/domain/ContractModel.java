@@ -10,9 +10,9 @@ import java.util.UUID;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
+
 @Table(name = "tb_contrato")
-public class UserModel {
+public class ContractModel {
 
     private static final long serialVersionUid = 1L;
 
@@ -23,4 +23,27 @@ public class UserModel {
     private String email;
 
 
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }
