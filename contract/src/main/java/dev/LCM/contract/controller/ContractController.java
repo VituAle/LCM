@@ -4,7 +4,6 @@ import dev.LCM.contract.domain.ContractModel;
 import dev.LCM.contract.dto.ContractDTO;
 import dev.LCM.contract.service.ContractService;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,8 +19,8 @@ public class ContractController {
     }
 
     @PostMapping("/criar")
-    public ResponseEntity<ContractModel> createContract(@RequestBody ContractDTO contractDTO){
-       ContractModel salvarContract = contractService.save(contractDTO);
-       return ResponseEntity.status(HttpStatus.CREATED).body(salvarContract);
+    public ResponseEntity<ContractModel> createContract(@RequestBody ContractModel contractModel){
+       ContractModel saveContract = contractService.save(contractModel);
+       return ResponseEntity.status(HttpStatus.CREATED).body(saveContract);
     }
 }

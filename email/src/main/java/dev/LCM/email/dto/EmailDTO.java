@@ -4,8 +4,9 @@ package dev.LCM.email.dto;
 import org.hibernate.validator.constraints.UUID;
 
 public record EmailDTO(
-        UUID id,
-        String subject,
+        UUID userId,
+        String emailTo,
+        String emailSubject,
         String body
 ) {
 

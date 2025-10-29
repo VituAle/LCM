@@ -1,5 +1,6 @@
 package dev.LCM.email.consumer;
 
+import dev.LCM.email.dto.EmailDTO;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Component;
@@ -7,9 +8,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class EmailConsumer {
 
-    @RabbitListener
-    public void listenEmailQueue (@Payload String message) {
-        System.out.println(message);
+    @RabbitListener(queues = "email-queue")
+    public void listenEmailQueue (@Payload EmailDTO emailDTO) {
+        System.out.println(emailDTO.emailTo());
 
     }
 }

@@ -1,18 +1,15 @@
-package dev.LCM.email.configuration;
+package dev.LCM.contract.configuration;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.amqp.core.Queue;
+import dev.LCM.contract.domain.ContractModel;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 
 @Configuration
-public class Message {
-
-    private final String queueMessage = "email-queue";
-
-    public Queue queue() {
-        return new Queue(queueMessage, true);
-    }
+public class ContractMessage {
 
     @Bean
     public Jackson2JsonMessageConverter messageConverter(){
@@ -20,4 +17,5 @@ public class Message {
         return new Jackson2JsonMessageConverter(objectMapper);
 
     }
+
 }
